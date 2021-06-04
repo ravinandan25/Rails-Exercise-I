@@ -1,31 +1,56 @@
 
 <%= form_with(model: employer) do |form| %>
-  <% if employer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(employer.errors.count, "error") %> prohibited this employer from being saved:</h2>
+  <%# if employer.errors.any? %>
+    <%# <div id="error_explanation"> %>
+      <%# <h2><%= pluralize(employer.errors.count, "error") prohibited this employer from being saved:</h2> %> 
 
-      <ul>
-        <% employer.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <%# <ul> %>
+        <%# <% employer.errors.each do |error| %> 
+          <%# <li><%= error.full_message %>
+          <%# </li> %> 
+        <%# <% end %> 
+      <%# </ul>
+    </div> %>
+  <%# <% end %> 
   <br>
   
   <div class="field">
     <%= form.label :name , class:"form-label" %>
     <%= form.text_field :name ,class:"form-control"%>
+    <% if employer.errors.any? %>
+     <% employer.errors.each do |error| %>
+       <% if error.attribute.to_s == "name"%>        
+         <p style="font-size:.8rem; color:red; font-style: italic;">       
+         <%= error.full_message %></p>
+         <%end%>
+        <% end %>      
+      <%end%>
   </div>
 
   <div class="field">
     <%= form.label :email , class:"form-label" %>
     <%= form.text_field :email,class:"form-control" %>
+    <% if employer.errors.any? %>
+     <% employer.errors.each do |error| %>
+       <% if error.attribute.to_s == "email"%>        
+         <p style="font-size:.8rem; color:red; font-style: italic;">       
+         <%= error.full_message %></p>
+         <%end%>
+        <% end %>      
+      <%end%>
   </div>
 
   <div class="field">
     <%= form.label :phone , class:"form-label"%>
     <%= form.text_field :phone ,class:"form-control" %>
+    <% if employer.errors.any? %>
+     <% employer.errors.each do |error| %>
+       <% if error.attribute.to_s == "phone"%>        
+         <p style="font-size:.8rem; color:red; font-style: italic;">       
+         <%= error.full_message %></p>
+         <%end%>
+        <% end %>      
+      <%end%>
   </div>
 
   <div class="field">
@@ -35,18 +60,40 @@
     <%= form.radio_button :gender, "Male" %>
     <%= form.label :gender, "Female" %>
     <%= form.radio_button :gender, "Female" %>
-   
+    <% if employer.errors.any? %>
+     <% employer.errors.each do |error| %>
+       <% if error.attribute.to_s == "gender"%>        
+         <p style="font-size:.8rem; color:red; font-style: italic;">       
+         <%= error.full_message %></p>
+         <%end%>
+        <% end %>      
+      <%end%>
   </div>
 
-  <div class="field">
-  
+  <div class="field">  
     <%= form.label :dob , class:"form-label"%>
-    <%=   form.date_select :dob, class:"form-control" %>
+    <%=form.date_select :dob, class:"form-control" %>
+    <% if employer.errors.any? %>
+     <% employer.errors.each do |error| %>
+       <% if error.attribute.to_s == "dob"%>        
+         <p style="font-size:.8rem; color:red; font-style: italic;">       
+         <%= error.full_message %></p>
+         <%end%>
+        <% end %>      
+      <%end%>
   </div>
 
   <div class="field">
     <%= form.label :location , class:"form-label"%>
     <%= form.text_field :location ,class:"form-control" %>
+    <% if employer.errors.any? %>
+     <% employer.errors.each do |error| %>
+       <% if error.attribute.to_s == "location"%>        
+         <p style="font-size:.8rem; color:red; font-style: italic;">       
+         <%= error.full_message %></p>
+         <%end%>
+        <% end %>      
+      <%end%>
   </div>
 
   <%# <div class="field">
