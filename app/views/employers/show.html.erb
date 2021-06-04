@@ -1,0 +1,45 @@
+<%# <p id="notice"><%= notice %></p> 
+<%#  %>
+<h1>Employee Details</h1>
+<br>
+
+<p>
+  <strong>Name:</strong>
+  <%= @employer.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @employer.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @employer.phone %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @employer.gender %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @employer.dob %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @employer.location %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @employer.status %>
+</p>
+<p>
+  <strong><%= link_to "Get Verified" , verified_path(@employer),class:"btn btn-warning"%></strong >
+  
+</p>
+<%= link_to 'Edit', edit_employer_path(@employer) ,class:"btn btn-primary"%> 
+<%= link_to 'Back', employers_path  ,class:"btn btn-secondary"%>

@@ -1,0 +1,61 @@
+
+<%= form_with(model: employer) do |form| %>
+  <% if employer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employer.errors.count, "error") %> prohibited this employer from being saved:</h2>
+
+      <ul>
+        <% employer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+  
+  <div class="field">
+    <%= form.label :name , class:"form-label" %>
+    <%= form.text_field :name ,class:"form-control"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :email , class:"form-label" %>
+    <%= form.text_field :email,class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone , class:"form-label"%>
+    <%= form.text_field :phone ,class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Sex, class:"form-label" %>:
+    <%# <%= form.text_field :gender ,class:"form-control"%> 
+     <%= form.label :gender, "Male" %>
+    <%= form.radio_button :gender, "Male" %>
+    <%= form.label :gender, "Female" %>
+    <%= form.radio_button :gender, "Female" %>
+   
+  </div>
+
+  <div class="field">
+  
+    <%= form.label :dob , class:"form-label"%>
+    <%=   form.date_select :dob, class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location , class:"form-label"%>
+    <%= form.text_field :location ,class:"form-control" %>
+  </div>
+
+  <%# <div class="field">
+    <%= form.label :status %>
+     <%# form.text_field :status %>
+  <%# </div>  %>
+  <br>
+
+  <div class="actions">
+    <%= form.submit "Submit", :class=>"btn btn-primary"%>
+  </div>
+<% end %>
