@@ -71,8 +71,8 @@
   </div>
 
   <div class="field">  
-    <%= form.label :dob , class:"form-label"%>
-    <%=form.date_select :dob, class:"form-control" %>
+    <%= form.label :"Date of Birth: " , class:"form-label"%>
+    <%=form.date_select :dob, order:[:day,:month,:year] ,start_year: Date.today.year - 90, end_year:Date.today.year, class:"form-control" %>
     <% if employer.errors.any? %>
      <% employer.errors.each do |error| %>
        <% if error.attribute.to_s == "dob"%>        
